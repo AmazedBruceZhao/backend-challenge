@@ -2,6 +2,7 @@
 ## Tech- Backend
 
 This exercise is designed to assess some basic knowledge of writing applications. These include, but are not limited to:
+- For public repo: avoid words lalamove and challenge
 - Writing code in Golang
 - Use the standard library for solving various algorithmic tasks
 - Implement well-documented third-party libraries
