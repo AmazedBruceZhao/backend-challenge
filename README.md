@@ -1,5 +1,5 @@
 # Technical Challenge - Lalamove
-## Tech/Infrastructure Intern
+## Tech- Backend
 
 This exercise is designed to assess some basic knowledge of writing applications. These include, but are not limited to:
 - Writing code in Golang
