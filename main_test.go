@@ -49,16 +49,34 @@ func TestLatestVersions(t *testing.T) {
 			minVersion:     semver.New("2.2.1"),
 		},
 		// Implement more relevant test cases here, if you can think of any
+		{
+			versionSlice:   []string{},
+			expectedResult: []string{},
+			minVersion:     semver.New("2.2.1"),
+		},
+		{
+			versionSlice:   []string{"1.0.0-beta.11", "1.0.0-beta.2", "2.0.0"},
+			expectedResult: []string{"2.0.0", "1.0.0-beta.11"},
+			minVersion:     semver.New("1.0.0-beta.3"),
+		},
+
 	}
 
 	test := func(versionData []string, expectedResult []string, minVersion *semver.Version) {
 		stringSlice := versionToStringSlice(LatestVersions(stringToVersionSlice(versionData), minVersion))
+		//by bruce
+		//in case out expectedResult[i] is out of range
+		if len(stringSlice) != len(expectedResult) {
+			t.Errorf("Received %s, expected %s", stringSlice, expectedResult)
+			return
+		}
 		for i, versionString := range stringSlice {
 			if versionString != expectedResult[i] {
 				t.Errorf("Received %s, expected %s", stringSlice, expectedResult)
 				return
 			}
 		}
+		t.Log("pass")
 	}
 
 	for _, testValues := range testCases {
